@@ -4,7 +4,7 @@ pipeline{
         stage('Git Checkout'){
             steps{
                 script{
-                    git credentialsId: 'github', url: 'https://github.com/Ganeswar-123/springboot-Ekart-application.git'
+                    git 'https://github.com/Ganeswar-123/springboot-Ekart-application.git'
                 }
             }
         }
