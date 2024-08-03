@@ -14,5 +14,15 @@ pipeline{
                 }
             }
         }
+        stage('UNIT testing'){
+            
+            steps{
+                
+                script{
+                    
+                    bat 'mvn test'
+                }
+            }
+        }
     }
 }
