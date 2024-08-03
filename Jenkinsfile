@@ -12,7 +12,7 @@ pipeline{
                     
                     git branch: 'master', url: 'https://github.com/Ganeswar-123/springboot-Ekart-application.git'
                 }
-            }
-        }
-}
+            }
+        }
+    }
 }
