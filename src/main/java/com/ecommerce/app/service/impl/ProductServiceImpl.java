@@ -38,16 +38,15 @@ public class ProductServiceImpl implements ProductService {
 	public ProductResponse getProductById(long productId) throws ProductNotFoundException {
 		Product product = productRepository.findById(productId)
 				.orElseThrow(() -> new ProductNotFoundException("Product is not found foe this id :" + productId));
-		ProductResponse productResponse = ProductResponse.builder().productId(product.getProductId())
+		return ProductResponse.builder().productId(product.getProductId())
 				.productName(product.getProductName()).productDescription(product.getProductDescription())
 				.productPrice(product.getProductPrice()).build();
-		return productResponse;
 	}
 
 	@Override
 	public List<Product> getAllProducts() {
 
-		return (List<Product>) productRepository.findAll();
+		return productRepository.findAll();
 	}
 
 	@Override
@@ -73,9 +72,7 @@ public class ProductServiceImpl implements ProductService {
 		existingProduct.setProductName(productRequest.getProductName());
 		existingProduct.setProductDescription(productRequest.getProductDescription());
 		existingProduct.setProductPrice(productRequest.getProductPrice());
-		Product updateProduct = productRepository.save(existingProduct);
-
-		return updateProduct;
+		return productRepository.save(existingProduct);
 	}
 
 }

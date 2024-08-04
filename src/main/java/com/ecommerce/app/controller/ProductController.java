@@ -65,8 +65,7 @@ public class ProductController {
 
 	@GetMapping("/product/getAllProducts")
 	public List<Product> getAllProducts() {
-		List<Product> products = productService.getAllProducts();
-		return products;
+		return productService.getAllProducts();
 	}
 
 	@PutMapping("/updateProduct/{productId}")
@@ -80,7 +79,7 @@ public class ProductController {
 	@DeleteMapping("/product/deleteAllProducts")
 	public ResponseEntity<String> deteteAllProducts() {
 		productService.deleteAllProducts();
-		return new ResponseEntity<String>("delete all product", HttpStatus.NO_CONTENT);
+		return new ResponseEntity<>("delete all product", HttpStatus.NO_CONTENT);
 
 	}
 
