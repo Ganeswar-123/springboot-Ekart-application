@@ -44,6 +44,20 @@ pipeline {
             }
             }
             }
+            stage('SonarQube') {
+
+                  steps {
+
+                    script {
+
+                      withSonarQubeEnv(credentialsId: 'ganesh-sonar') {
+
+                        bat 'mvn clean package sonar:sonar'
+                      }
+                    }
+
+              }
+            }
 
   }
 }
